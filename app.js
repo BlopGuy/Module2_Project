@@ -42,7 +42,7 @@ app.use(
     cookie: {
       sameSite: true,
       httpOnly: true,
-      maxAge: 60000
+      maxAge: 60000 //período máximo de inactividade 
     },
     rolling: true,
     store: new MongoStore({
