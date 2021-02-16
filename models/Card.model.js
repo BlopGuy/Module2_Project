@@ -4,12 +4,12 @@ const { Schema, model } = mongoose;
 const cardSchema = new Schema({ 
   name: {
     type: String,
-    required: true
+    required: [true, 'Name is required']
   },
   Health: String,
   imageUrl: {
     type: String,
-    required: true
+    required: [true, 'image is required']
   },
   imageUrlHiRes: String,
   releaseDate: Date,

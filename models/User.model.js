@@ -18,6 +18,9 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'Password is required']
   },
+  birthDate: {
+    type: Date
+  },
   /*cards: [{
     type: Schema.Types.ObjectId,
     ref: 'Card'

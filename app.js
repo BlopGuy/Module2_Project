@@ -71,5 +71,11 @@ app.locals.title = 'Card Game';
 const index = require('./routes/index');
 app.use('/', index);
 
+const card = require('./routes/cards');
+app.use('/', card);
+
+const user = require('./routes/user');
+app.use('/', user);
+
 
 module.exports = app;
