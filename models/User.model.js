@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+const {
+  Schema,
+  model
+} = mongoose;
 
-const userSchema = new Schema({ 
+const userSchema = new Schema({
   username: {
     type: String,
     trim: true,
@@ -21,10 +24,11 @@ const userSchema = new Schema({
   birthDate: {
     type: Date
   },
-  /*cards: [{
+  image: String,
+  cards: [{
     type: Schema.Types.ObjectId,
     ref: 'Card'
-  }],*/
+  }],
   role: String
 });
 

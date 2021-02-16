@@ -42,7 +42,7 @@ app.use(
     cookie: {
       sameSite: true,
       httpOnly: true,
-      maxAge: 60000 //período máximo de inactividade 
+      maxAge: 60000
     },
     rolling: true,
     store: new MongoStore({
@@ -51,8 +51,6 @@ app.use(
     })
   })
 );
-
-// Express View engine setup
 
 
 // Express View engine setup
@@ -77,5 +75,7 @@ app.use('/', card);
 const user = require('./routes/user');
 app.use('/', user);
 
+const auth = require('./routes/auth');
+app.use('/', auth);
 
 module.exports = app;
