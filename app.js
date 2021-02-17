@@ -12,6 +12,7 @@ const helpers = require('handlebars-helpers');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const axios = require('axios');
 
 hbs.registerHelper(helpers());
 
@@ -77,5 +78,6 @@ app.use('/', user);
 
 const auth = require('./routes/auth');
 app.use('/', auth);
+
 
 module.exports = app;
