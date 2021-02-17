@@ -1,8 +1,26 @@
-
 .brandimg {
   width: 50px;
 }
 
 .align-right {
   float: right;
+}
+
+.info-bg {
+  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613574943/Project2/wallpapersden.com_pokemon-pikachu-art_1920x1080_y7om88.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 800px;
+}
+
+.info-text {
+  position: absolute;
+  top: 475px;
+  margin-left: 40px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.small-text {
+  font-size: 25px;
+  margin: 40px 0;
 }
