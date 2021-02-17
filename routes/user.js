@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Card = require('../models/Card.model');
 const User = require('../models/User.model');
+const Card = require('../models/Card.model');
 
 
+router.get('/profile', (req, res) => {
+  res.render('users/my-area')
+});
 
 module.exports = router;

@@ -6,7 +6,7 @@ const cardSchema = new Schema({
     type: String,
     required: [true, 'Name is required']
   },
-  Health: String,
+  health: String,
   imageUrl: {
     type: String,
     required: [true, 'image is required']
