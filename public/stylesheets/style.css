@@ -1,8 +1,8 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.brandimg {
+  width: 50px;
 }
 
-a {
-  color: #00B7FF;
+.align-right {
+  float: right;
 }

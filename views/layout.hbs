@@ -6,33 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-        <div>
-        {{#if user}}
-        <a class="nav-link" href="#">Logout</a>
-        <a class="nav-link" href="/signup">Signup</a>
-        <a class="nav-link" href="/login">Login</a>
-        </div>
-      </div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gameInfo">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cards">Collection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/booster">Booster Pack</a>
+        </li>
+      </ul>
     </div>
-  </div>
-</nav>
+    <div class="mx-auto order-0">
+      <a class="navbar-brand mx-auto" href="#">
+        <img src="https://res.cloudinary.com/dl3x6ymyp/image/upload/v1613561488/Project2/Poke_Ball_djjfdb.png"
+          alt="pokebola" class='brandimg'>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 align-right" style = 'display: inline-block!important'>
+      <ul class="navbar-nav ml-auto align-right">
+        {{#if user}}
+        <li class="nav-item">
+          <form action="logout" method='POST'>
+            <button type='submit' style="border: 0; background: transparent">
+              <img src="https://res.cloudinary.com/dl3x6ymyp/image/upload/v1613563246/Project2/5a059a909cf05203c4b6045b_nhrrc1.png" alt="logout" class = 'brandimg'>
+            </button>
+          </form>
+        </li>
+        {{/if}}
+        {{#unless user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        {{/unless}}
+      </ul>
+    </div>
+  </nav>
+
+  {{#if user}}
+  <h2>Hello {{user.username}}</h2>
+  {{/if}}
   {{{body}}}
-  
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 

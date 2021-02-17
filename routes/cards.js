@@ -9,6 +9,10 @@ router.get('/cards', (req, res) => {
   res.render('cards/card-collection');
 });
 
+router.get('/booster', (req, res) => {
+  res.render('cards/booster-pack');
+});
+
 
 
 
