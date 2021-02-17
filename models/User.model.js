@@ -21,10 +21,10 @@ const userSchema = new Schema({
   birthDate: {
     type: Date
   },
-  /*cards: [{
+  cards: [{
     type: Schema.Types.ObjectId,
     ref: 'Card'
-  }],*/
+  }],
   role: String
 });
 
