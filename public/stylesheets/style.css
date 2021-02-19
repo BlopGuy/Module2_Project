@@ -183,3 +183,7 @@ footer {
   height: 100vh;
   padding: 1em;
 }
+
+#footer-big {
+  position: sticky;
+}
