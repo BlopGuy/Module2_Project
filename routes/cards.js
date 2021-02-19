@@ -27,7 +27,20 @@ let getCard = () => {
 
 
 router.get('/cards', (req, res) => {
-  res.render('cards/card-collection');
+  User.findById(req.session.currentUser._id).
+    then((user) => {
+      let cardIds = user.cards;
+      let cardPromises = [];
+
+      cardIds.forEach((cardId) => {
+        cardPromises.push(Card.findById(cardId));
+      });
+
+      Promise.all(cardPromises)
+        .then((cardsFromUser) => {
+          res.render('cards/card-collection', { cards: cardsFromUser, user: req.session.currentUser });
+        });
+    });
 });
 
 router.get('/booster', (req, res) => {
@@ -55,24 +68,36 @@ router.get('/booster', (req, res) => {
 
 router.get('/booster/:boosterId', (req, res) => {
   let boosterId = req.params.boosterId;
+  res.render('cards/booster-pack', { booster: boosterId, user: req.session.currentUser });
+});
+
+router.get('/booster/:boosterId/open', (req, res) => {
+  let boosterId = req.params.boosterId;
   let cardsFromBooster = [];
   Booster.findById(boosterId)
     .then((boosterFromDB) => {
       let idsFromBooster = boosterFromDB.cards;
-      
+
       idsFromBooster.forEach((cardId) => {
         cardsFromBooster.push(Card.findById(cardId));
       });
 
       Promise.all(cardsFromBooster)
-        .then(() => {
-          res.render('cards/booster-pack', { cards: cardsFromBooster });
+        .then((cardsStored) => {
+          res.render('cards/booster-pack-open', { cards: cardsStored, booster: boosterFromDB._id, user: req.session.currentUser });
         });
     });
 });
 
-router.post('/booster/:boosterId/add', (req, res) => {
-  res.redirect(`/booster/${boosterId}`);
+
+router.post('/cards/add/:cardId/:boosterId', (req, res) => {
+  const cardId = req.params.cardId;
+  const boosterId = req.params.boosterId
+  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { cards: cardId } })
+    .then((user) => {
+      console.log(user.cards);
+      res.redirect(`/booster/${boosterId}/open`);
+    });
 });
 
 

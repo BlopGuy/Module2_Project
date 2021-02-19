@@ -21,12 +21,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/gameInfo">Info</a>
         </li>
+        {{#if user}}
         <li class="nav-item">
           <a class="nav-link" href="/cards">Collection</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/booster">Booster Pack</a>
         </li>
+        {{/if}}
       </ul>
     </div>
     <div class="mx-auto order-0">
@@ -60,10 +62,6 @@
       </ul>
     </div>
   </nav>
-
-  {{#if user}}
-  <h2>Hello {{user.username}}</h2>
-  {{/if}}
   {{{body}}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>

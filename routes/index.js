@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/gameInfo', (req, res) => {
-  res.render('game-info');
+  res.render('game-info', { user: req.session.currentUser } );
 });
 
 module.exports = router;

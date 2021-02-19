@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 
 router.get('/login', (req, res) => {
-  res.render('auth/login');
+  res.render('auth/login', { user: req.session.currentUser });
 });
 
 
@@ -28,8 +28,8 @@ router.post('/login', (req, res) => {
     return;
   }
   User.findOne({
-      username: username
-    })
+    username: username
+  })
     .then((user) => {
       if (!user) {
         res.render('auth/login', {
@@ -69,8 +69,8 @@ router.post('/signup', (req, res) => {
     return;
   }
   User.findOne({
-      username: username
-    })
+    username: username
+  })
     .then((user) => {
       if (user) {
         res.render('auth/signup', {

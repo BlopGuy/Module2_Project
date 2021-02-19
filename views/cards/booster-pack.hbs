@@ -1,22 +1,6 @@
-<h1>Booster Pack</h1>
-<div class='flex'>
-  {{#each cards}}
-  <div id='booster-card' class='hidden'>
-    <img src="{{imageUrl}}" alt="{{name}} image">
-    <form action="/booster/add" method='POST'>
-      <button>Add Card</button>
-    </form>
-  </div>
-  {{/each}}
-  <div >
-    <button onclick="openPack()" id='booster-pack'>Open</button>
-    <button type = 'submit'>Add to collection</button>
-  </div>
 
-  <script>
-    function openPack() {
-      document.querySelector('#booster-pack').classList.add('hidden');
-      document.querySelectorAll('#booster-card').classList.remove('hidden');
-      return;
-    }
-  </script>
+<div class = 'flex-div-column'>
+  <h1>Booster Pack</h1>
+  <img src="" alt="booster image">
+  <a href="/booster/{{booster}}/open" id = 'collection-btn'>Open</a>
+</div>

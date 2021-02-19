@@ -1,0 +1,19 @@
+
+<div class = 'flex-div-column'>
+  <h1>Booster Pack</h1>
+  <div class='flex-div' id='booster-card'>
+    {{#each cards}}
+    <div class = 'flex-div-column'>
+      <img src="{{imageUrl}}" alt="{{name}} image">
+      <form action="/cards/add/{{id}}/{{../booster}}" method='POST'>
+        <button type='submit'>
+          Add Card
+        </button>
+      </form>
+    </div>
+    {{/each}}
+  </div>
+  <div>
+    <a href="/cards" id='collection-btn'>See collection</a>
+  </div>
+</div>

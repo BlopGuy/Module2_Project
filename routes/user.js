@@ -5,7 +5,7 @@ const Card = require('../models/Card.model');
 
 
 router.get('/profile', (req, res) => {
-  res.render('users/my-area')
+  res.render('users/my-area', { user: req.session.currentUser })
 });
 
 module.exports = router;
