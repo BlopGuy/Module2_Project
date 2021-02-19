@@ -8,6 +8,13 @@
   width: 50px;
 }
 
+.home {
+  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613730491/Project2/logoHome_zguish.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+
 .align-right {
   float: right;
 }
@@ -16,7 +23,7 @@
   background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613574943/Project2/wallpapersden.com_pokemon-pikachu-art_1920x1080_y7om88.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 800px;
+  height: 100vh;
 }
 
 .info-text {
@@ -42,7 +49,7 @@
   background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613667454/Project2/poke2.1_ngiwdd.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 800px;
+  height: 100vh;
 }
 
 .log-user {
@@ -70,11 +77,13 @@ input {
   border-radius: 24px;
   margin-bottom: 0.5em;
   text-align: center;
+  border: 0px solid;
 }
 
 .log-user button {
   border-radius: 24px;
   width: 125px;
+  border: 1px solid green;
 }
 
 .log-submit p {
@@ -82,23 +91,23 @@ input {
 }
 
 .sign-up {
-  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613692188/Project2/signup1_j9svha.jpg");
+  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613734515/Project2/pokmon-1613734152310-2371_knwpb5.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 800px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .sign-user {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 400px;
-  margin-left: 550px;
+  margin-left: 150px;
   width: 400px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 27px;
-  background-color: #c0f2fc;
+  background-color: #faf4ba;
   box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
   border-radius: 12px;
   padding: 1em;
@@ -107,4 +116,33 @@ input {
 .sign-up button {
   border-radius: 24px;
   width: 200px;
+  border: 1px solid;
+}
+
+footer {
+  background-color: #212529;
+  color: white;
+}
+
+.home {
+  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613742173/Project2/home_q0y6ih.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.collection {
+  background-color: rgb(153, 238, 153);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 1em;
+}
+
+.boost {
+  background-color: rgb(252, 187, 90);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 1em;
 }
