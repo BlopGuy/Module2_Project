@@ -1,21 +1,22 @@
-<h2>Signup</h2>
+<div class="sign-up">
+  <form action="/signup" method="POST">
+    <div class="sign-user">
 
-<div class="form">
-<form action="/signup" method="POST">
-  <label>Username</label>
-  <input type="text" name="username" placeholder="Be creative!" required>
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Be creative!" required>
 
-  <label>Email</label>
-  <input type="email" name="email" placeholder="Your trash email :)" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="That one you never use :)" required>
 
-  <label>Password</label>
-  <input type="password" name="password" placeholder="Shhh! It's a secret" required>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Shhh! It's a secret" required>
+      <br>
+      <button type="submit">Create account</button>
+    </div>
 
-  <button type="submit">Create account</button>
+    {{#if errorMessage}}
+    <div>{{errorMessage}}</div>
+    {{/if}}
 
-  {{#if errorMessage}}
-  <div>{{errorMessage}}</div>
-  {{/if}}
-
-</form>
+  </form>
 </div>

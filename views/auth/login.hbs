@@ -1,17 +1,22 @@
-<header>Login</header>
-<div class="form">
-<form action="/login" method="POST">
-  <label>Username</label>
-  <input type="text" name="username" required>
-  <label>Password</label>
-  <input type="password" name="password" required>
-  <button type="submit">Log In</button>
+<div class="log-in">
+  <form action="/login" method="POST">
+    <div class="log-user">
+      <label>Username</label>
+      <input type="text" name="username" required>
+      <label>Password</label>
+      <input type="password" name="password" required>
+      <div class="log-submit">
+        <button type="submit">Log In</button>
+        <br>
+        <p>Don't have an account? Sign up <a href="/signup">here</a></p>
+      </div>
+    </div>
+</div>
 
-  {{#if errorMessage}}
-  <div>{{errorMessage}}</div>
-  {{/if}}
+{{#if errorMessage}}
+<div>{{errorMessage}}</div>
+{{/if}}
 
-  <p>Don't have an account? Sign up <a href="/signup">here</a></p>
 
 </form>
 </div>
