@@ -24,3 +24,7 @@
   font-size: 25px;
   margin: 40px 0;
 }
+
+.hidden {
+  display: none;
+}
