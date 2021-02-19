@@ -6,25 +6,24 @@ const User = require('../models/User.model');
 const PokeAPI = 'https://api.pokemontcg.io/v2/cards';
 
 let getCard = () => {
-  let randomPage = Number(Math.floor(Math.random()*(10 - 1)) + 1);
-  
+  let randomPage = Number(Math.floor(Math.random() * (10 - 1)) + 1);
 
   axios.get(`${PokeAPI}?page=${randomPage}`)
-  .then((response) =>{
-    const data = response.data.data;
-    let randomIndex = Number(Math.floor(Math.random()*(data.length - 1)) + 1);
-    let chosenCard = data[randomIndex];
-    let cardObject = {
-      name: chosenCard.name,
-      imageUrl: chosenCard.images.small,
-      imageUrlHiRes: chosenCard.images.large,
-      releaseDate: chosenCard.set.releaseDate,
-      artist: chosenCard.artist,
-      rarity: chosenCard.rarity
-    };
-    console.log(cardObject);
-    return cardObject;
-  });
+    .then((response) => {
+      const data = response.data.data;
+      let randomIndex = Number(Math.floor(Math.random() * (data.length - 1)) + 1);
+      let chosenCard = data[randomIndex];
+      let cardObject = {
+        name: chosenCard.name,
+        imageUrl: chosenCard.images.small,
+        imageUrlHiRes: chosenCard.images.large,
+        releaseDate: chosenCard.set.releaseDate,
+        artist: chosenCard.artist,
+        rarity: chosenCard.rarity
+      };
+      console.log(cardObject);
+      return cardObject;
+    });
 };
 
 

@@ -1,3 +1,9 @@
+.style-nav {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: large;
+  padding: 10px;
+}
+
 .brandimg {
   width: 50px;
 }
@@ -15,12 +21,89 @@
 
 .info-text {
   position: absolute;
-  top: 475px;
+  top: 350px;
   margin-left: 40px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .small-text {
-  font-size: 25px;
+  font-size: 23px;
   margin: 40px 0;
+}
+
+.gotta-catch {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 50px;
+  color: rgba(12, 12, 206, 0.863);
+}
+
+.log-in {
+  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613667454/Project2/poke2.1_ngiwdd.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 800px;
+}
+
+.log-user {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 200px;
+  margin-left: 110px;
+  width: 350px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 30px;
+  background-color: rgb(139, 228, 139, 0.6);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 0.5em 1em;
+}
+
+.log-submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+input {
+  border-radius: 24px;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.log-user button {
+  border-radius: 24px;
+  width: 125px;
+}
+
+.log-submit p {
+  font-size: 27px;
+}
+
+.sign-up {
+  background-image: url("https://res.cloudinary.com/dmarmh2vl/image/upload/v1613692188/Project2/signup1_j9svha.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 800px;
+}
+
+.sign-user {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 400px;
+  margin-left: 550px;
+  width: 400px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 27px;
+  background-color: #c0f2fc;
+  box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
+  border-radius: 12px;
+  padding: 1em;
+}
+
+.sign-up button {
+  border-radius: 24px;
+  width: 200px;
 }
