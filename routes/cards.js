@@ -3,12 +3,12 @@ const axios = require('axios');
 const router = express.Router();
 const Card = require('../models/Card.model');
 const User = require('../models/User.model');
+const Booster = require('../models/Booster.model');
 const PokeAPI = 'https://api.pokemontcg.io/v2/cards';
 
 let getCard = () => {
   let randomPage = Number(Math.floor(Math.random() * (10 - 1)) + 1);
-
-  axios.get(`${PokeAPI}?page=${randomPage}`)
+  return axios.get(`${PokeAPI}?page=${randomPage}`)
     .then((response) => {
       const data = response.data.data;
       let randomIndex = Number(Math.floor(Math.random() * (data.length - 1)) + 1);
@@ -21,7 +21,6 @@ let getCard = () => {
         artist: chosenCard.artist,
         rarity: chosenCard.rarity
       };
-      console.log(cardObject);
       return cardObject;
     });
 };
@@ -32,12 +31,48 @@ router.get('/cards', (req, res) => {
 });
 
 router.get('/booster', (req, res) => {
-  res.render('cards/booster-pack');
+  let boosterPackPromises = [];
+  for (let i = 0; i < 5; i++) {
+    boosterPackPromises.push(getCard());
+  }
+  let cardCreation = [];
+  Promise.all(boosterPackPromises).then((response) => {
+    response.forEach(card => {
+      cardCreation.push(Card.create({ name: card.name, imageUrl: card.imageUrl, imageUrlHiRes: card.imageUrlHiRes, releaseDate: card.releaseDate, artist: card.artist, rarity: card.rarity }));
+    });
+
+    Promise.all(cardCreation).then((createdCards) => {
+      let boosterPackCardsIds = createdCards.map((card) => card._id);
+
+      Booster.create({ cards: boosterPackCardsIds })
+        .then((response) => {
+          let boosterId = response._id;
+          res.redirect(`/booster/${boosterId}`);
+        });
+    });
+  });
 });
 
-router.post('/booster', (req, res) => {
-  let chosenCard = getCard();
-  res.render('cards/booster-pack');
+router.get('/booster/:boosterId', (req, res) => {
+  let boosterId = req.params.boosterId;
+  let cardsFromBooster = [];
+  Booster.findById(boosterId)
+    .then((boosterFromDB) => {
+      let idsFromBooster = boosterFromDB.cards;
+      
+      idsFromBooster.forEach((cardId) => {
+        cardsFromBooster.push(Card.findById(cardId));
+      });
+
+      Promise.all(cardsFromBooster)
+        .then(() => {
+          res.render('cards/booster-pack', { cards: cardsFromBooster });
+        });
+    });
+});
+
+router.post('/booster/:boosterId/add', (req, res) => {
+  res.redirect(`/booster/${boosterId}`);
 });
 
 
