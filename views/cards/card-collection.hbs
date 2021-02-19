@@ -1,18 +1,19 @@
-<h1 class="collection"><img
+<div class="collection">
+  <img
     src="https://res.cloudinary.com/dmarmh2vl/image/upload/v1613743489/Project2/Your-Collection_b2dxll.png"
-    alt="collection"></h1>
-<hr>
-<div class="row row-cols-1 row-cols-md-5 g-4">
-  {{#each cards}}
-  <div class="col">
-    <div class="card">
-      <img src="{{imageUrl}}" class="card-img-top" alt="cardImg">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
+    alt="collection">
+  <div class="row row-cols-1 row-cols-md-5 g-4">
+    {{#each cards}}
+    <div class="col">
+      <div class="card">
+        <img src="{{imageUrl}}" class="card-img-top img-size" alt="cardImg">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-{{/each}}
+  {{/each}}
+</div>
 </div>

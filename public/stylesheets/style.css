@@ -187,3 +187,7 @@ footer {
 #footer-big {
   position: sticky;
 }
+
+.img-size {
+  max-width: 200px;
+}
